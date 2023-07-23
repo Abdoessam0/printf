@@ -35,10 +35,17 @@ int format_fun(const char *format, va_list args)
 				}
 				k++;
 			}
-			if (con[k].c == 0)
+			if (con[k].c == 0 && format[i + 1] != ' ')
 			{
-				write_fun('%');
-				write_fun(format[i + 1]);
+				if (format[i + 1] != 0)
+				{
+					write_fun(format[i]);
+					write_fun(format[i + 1]);
+					len += 2;
+				} else
+				{
+					return (-1);
+				}
 			}
 			i++;
 		} else
