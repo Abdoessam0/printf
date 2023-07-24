@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _printf - clone of orginal printf
  * @format: The formated string
@@ -8,9 +9,17 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int s_len = 0;
+	conven_t con[] = {
+		{'c', print_char},
+		{'s', print_str},
+		{'d', print_int},
+		{'i', print_int},
+		{'%', print_percent},
+		{0, NULL}
+	};
 
 	va_start(args, format);
-	s_len = format_fun(format, args);
+	s_len = format_fun(format, args, con);
 	va_end(args);
 	return (s_len);
 }
