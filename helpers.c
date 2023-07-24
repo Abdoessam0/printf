@@ -7,6 +7,8 @@ int int_len(int i)
 {
 	int len = 0;
 
+	if (i == 0)
+		return (1);
 	while (i != 0)
 	{
 		i /= 10;
