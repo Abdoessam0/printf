@@ -7,35 +7,31 @@
  */
 int print_decimal(int n)
 {
-	int is_negative = 0, len = 0, i = 0;
-	char *s;
+	int count, len;
+	unsigned int num;
 
-	if (n == 0)
-	{
-		write_fun(48);
-		return (1);
-	}
+	count = 1, len = 0;
+
 	if (n < 0)
 	{
-		is_negative = 1;
-		n = -n;
-		len = 1;
-	}
-	len += int_len(n);
-	s = malloc(sizeof(char) * len + 1);
-	while (n != 0)
-	{
-		s[i] = (n % 10) + 48;
-		n /= 10, i++;
-	}
-	if (is_negative)
-	{
 		write_fun('-');
-	}
-	while (i >= 0)
+		num = n * -1;
+		len = 1;
+	} else
 	{
-		write_fun(s[i]);
-		i--;
+		num = n;
 	}
+	len += int_len(num);
+	while (num / count > 9)
+	{
+		count *= 10;
+	}
+	while (count != 0)
+	{
+		write_fun('0' + num / count);
+		num %= count;
+		count /= 10;
+	}
+
 	return (len);
 }
