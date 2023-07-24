@@ -11,7 +11,6 @@ int print_decimal(int n)
 	unsigned int num;
 
 	count = 1, len = 0;
-
 	if (n < 0)
 	{
 		write_fun('-');
