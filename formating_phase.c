@@ -5,19 +5,13 @@
  * format_fun - formats the string line
  * @format: The string line
  * @args: Arguments to be formated
+ * @con: Conversion characters
  * Return: The length of the string line
  */
-int format_fun(const char *format, va_list args)
+int format_fun(const char *format, va_list args, conven_t con[])
 {
 	int i, k = 0, len = 0;
-	con_t con[] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'d', print_int},
-		{'i', print_int},
-		{'%', print_percent},
-		{0, NULL}
-	};
+
 	if (format == NULL)
 		return (-1);
 	if (*format == 0)
