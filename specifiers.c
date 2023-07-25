@@ -52,15 +52,3 @@ int print_percent(__attribute__((unused)) va_list arg)
 	write_fun('%');
 	return (1);
 }
-/**
- * print_bin - prints the binary form decimal
- * @arg: An integer
- * Return: The number of digits in the binary
- */
-int print_bin(va_list arg)
-{
-	int b_len;
-
-	b_len = print_binary(va_arg(arg, int));
-	return (b_len);
-}
